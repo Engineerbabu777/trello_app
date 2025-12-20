@@ -1,4 +1,11 @@
-import { Button, FlatList, Text, TextInput, View } from "react-native";
+import {
+  Button,
+  FlatList,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
 import TaskListItem from "./TaskListItem";
 import { useState } from "react";
 
@@ -17,24 +24,8 @@ export default function TaskList() {
 
   return (
     <>
-      <View
-        style={{
-          backgroundColor: "#101112",
-          padding: 10,
-          borderRadius: 5,
-          gap: 5,
-        }}
-      >
-        <Text
-          style={{
-            color: "white",
-            fontWeight: "bold",
-            fontSize: 20,
-            marginVertical: 10,
-          }}
-        >
-          Todo
-        </Text>
+      <View style={styles.container}>
+        <Text style={styles.title}>Todo</Text>
 
         <FlatList
           contentContainerStyle={{ gap: 5 }}
@@ -49,15 +40,31 @@ export default function TaskList() {
           onChangeText={setNewTask}
           placeholder="New task"
           placeholderTextColor={"gray"}
-          style={{
-            color: "white",
-            padding: 15,
-            backgroundColor: "#1D2125",
-            borderRadius: 5,
-          }}
+          style={styles.input}
         />
         <Button title="Add task" onPress={createTask} />
       </View>
     </>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#101112",
+    padding: 10,
+    borderRadius: 5,
+    gap: 5,
+  },
+  title: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 20,
+    marginVertical: 10,
+  },
+  input: {
+    color: "white",
+    padding: 15,
+    backgroundColor: "#1D2125",
+    borderRadius: 5,
+  },
+});
