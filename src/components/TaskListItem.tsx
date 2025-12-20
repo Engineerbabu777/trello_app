@@ -16,12 +16,13 @@ export default function TaskListItem() {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#1D2125",
-    padding: 10,
+    padding: 15,
     borderRadius: 5,
     flexDirection: "row",
     justifyContent: "space-between",
   },
   text: {
     color: "#fff",
+    fontSize: 16,
   },
 });
