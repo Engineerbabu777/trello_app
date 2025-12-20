@@ -1,11 +1,18 @@
 import { StyleSheet, Text, View } from "react-native";
 import Entypo from "@expo/vector-icons/Entypo";
 
-export default function TaskListItem() {
+type TaskType = {
+  description: string;
+};
+
+type Props = {
+  task: TaskType;
+};
+export default function TaskListItem({ task }: Props) {
   return (
     <>
       <View style={styles.container}>
-        <Text style={styles.text}>Task</Text>
+        <Text style={styles.text}>{task.description}</Text>
 
         <Entypo name="cross" size={16} color="gray" />
       </View>
