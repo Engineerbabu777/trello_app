@@ -11,14 +11,14 @@ import { useState } from "react";
 
 export default function TaskList() {
   const [tasks, setTasks] = useState([
-    { description: "First Task" },
-    { description: "Second Task" },
+    { description: "First Task", id: "" },
+    { description: "Second Task", id: "" },
   ]);
 
   const [newTask, setNewTask] = useState("");
 
   const createTask = () => {
-    setTasks([...tasks, { description: newTask }]);
+    setTasks([...tasks, { description: newTask, id: "" }]);
     setNewTask("");
   };
 
@@ -30,6 +30,7 @@ export default function TaskList() {
         <FlatList
           contentContainerStyle={{ gap: 5 }}
           data={tasks}
+          keyExtractor={(item) => item.description}
           renderItem={({ item }) => <TaskListItem task={item} />}
         />
 

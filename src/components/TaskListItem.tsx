@@ -4,6 +4,7 @@ import { Link } from "expo-router";
 
 type TaskType = {
   description: string;
+  id: any;
 };
 
 type Props = {
@@ -12,7 +13,7 @@ type Props = {
 export default function TaskListItem({ task }: Props) {
   return (
     <>
-      <Link href={"/details"} asChild>
+      <Link href={`/${task.id}`} asChild>
         <Pressable style={styles.container}>
           <Text style={styles.text}>{task.description}</Text>
 

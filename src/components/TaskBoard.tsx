@@ -2,7 +2,6 @@ import { StyleSheet, View } from "react-native";
 import TaskList from "./TaskList";
 
 import { LinearGradient } from "expo-linear-gradient";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function TaskBoard() {
   return (
