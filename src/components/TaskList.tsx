@@ -8,7 +8,11 @@ export default function TaskList() {
     { description: "Second Task" },
   ]);
 
-  const createTask = () => {}
+  const [newTask, setNewTask] = useState("");
+
+  const createTask = () => {
+    setNewTask("");
+  };
 
   return (
     <>
@@ -40,6 +44,8 @@ export default function TaskList() {
         {/* INPUT */}
 
         <TextInput
+          value={newTask}
+          onChangeText={setNewTask}
           placeholder="New task"
           placeholderTextColor={"gray"}
           style={{
@@ -49,7 +55,7 @@ export default function TaskList() {
             borderRadius: 5,
           }}
         />
-        <Button title="Add task"  onPress={createTask}/>
+        <Button title="Add task" onPress={createTask} />
       </View>
     </>
   );
