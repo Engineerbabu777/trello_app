@@ -1,13 +1,13 @@
 import TaskBoard from "@/components/TaskBoard";
-import { StyleSheet } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { StatusBar, StyleSheet, View } from "react-native";
 
 export default function MainApp() {
   return (
     <>
-      <SafeAreaView style={styles.container}>
+      <StatusBar barStyle={"light-content"} />
+      <View style={styles.container}>
         <TaskBoard />
-      </SafeAreaView>
+      </View>
     </>
   );
 }
