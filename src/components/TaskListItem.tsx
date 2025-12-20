@@ -2,11 +2,22 @@ import { Pressable, StyleSheet, Text } from "react-native";
 import Entypo from "@expo/vector-icons/Entypo";
 import { Link, router } from "expo-router";
 import { Task } from "@/models/Task";
+import { useRealm } from "@realm/react";
 
 type Props = {
   task: Task;
 };
 export default function TaskListItem({ task }: Props) {
+  const realm = useRealm();
+
+  
+    const deleteTask = () => {
+    realm.write(() => {
+      realm.delete(task);
+    });
+  };
+
+
   return (
     <>
       <Pressable
