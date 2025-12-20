@@ -11,6 +11,7 @@ export default function TaskList() {
   const [newTask, setNewTask] = useState("");
 
   const createTask = () => {
+    setTasks([...tasks, { description: newTask }]);
     setNewTask("");
   };
 
