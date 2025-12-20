@@ -6,18 +6,20 @@ import {
   TextInput,
   View,
 } from "react-native";
-import TaskListItem from "./TaskListItem";
+import TaskListItem, { TaskType } from "./TaskListItem";
 import { useState } from "react";
-import { useRealm } from "@realm/react";
+import { useQuery, useRealm } from "@realm/react";
 import { Task } from "@/models/Task";
 
 export default function TaskList() {
   const realm = useRealm();
 
-  const [tasks, setTasks] = useState([
-    { description: "First Task", id: "" },
-    { description: "Second Task", id: "" },
-  ]);
+  const tasks = useQuery(Task);
+
+  // const [tasks, setTasks] = useState([
+  //   { description: "First Task", id: "" },
+  //   { description: "Second Task", id: "" },
+  // ]);
 
   const [newTask, setNewTask] = useState("");
 
@@ -40,7 +42,9 @@ export default function TaskList() {
           contentContainerStyle={{ gap: 5 }}
           data={tasks}
           keyExtractor={(item) => item.description}
-          renderItem={({ item }) => <TaskListItem task={item} />}
+          renderItem={({ item }) => (
+            <TaskListItem task={item as any as TaskType} />
+          )}
         />
 
         {/* INPUT */}

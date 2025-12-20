@@ -2,7 +2,7 @@ import { Pressable, StyleSheet, Text } from "react-native";
 import Entypo from "@expo/vector-icons/Entypo";
 import { Link, router } from "expo-router";
 
-type TaskType = {
+export type TaskType = {
   description: string;
   id: any;
 };
