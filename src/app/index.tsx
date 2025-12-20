@@ -4,7 +4,6 @@ import { StatusBar, StyleSheet, View } from "react-native";
 export default function MainApp() {
   return (
     <>
-      <StatusBar barStyle={"light-content"} />
       <View style={styles.container}>
         <TaskBoard />
       </View>
