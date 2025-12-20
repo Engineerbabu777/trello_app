@@ -1,10 +1,13 @@
 import { StyleSheet, Text, View } from "react-native";
+import Entypo from "@expo/vector-icons/Entypo";
 
 export default function TaskListItem() {
   return (
     <>
       <View style={styles.container}>
         <Text style={styles.text}>Task</Text>
+
+        <Entypo name="cross" size={16} color="gray" />
       </View>
     </>
   );
@@ -12,8 +15,11 @@ export default function TaskListItem() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "black",
+    backgroundColor: "#1D2125",
     padding: 10,
+    borderRadius: 5,
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   text: {
     color: "#fff",
