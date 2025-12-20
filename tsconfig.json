@@ -44,5 +44,5 @@
     "src/providers/internet-connection-provider.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-  ]
+, "babel.config.js"  ]
 }
