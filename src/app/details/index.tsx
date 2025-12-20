@@ -1,13 +1,28 @@
 import { Task } from "@/models/Task";
-import { useObject } from "@realm/react";
+import { useObject, useRealm } from "@realm/react";
 import { Stack, useLocalSearchParams } from "expo-router";
+import { useState } from "react";
 import { Text, View } from "react-native";
 import { BSON } from "realm";
 
 export default function TaskDetailsScreen() {
   const { id } = useLocalSearchParams();
+  const realm = useRealm();
 
   const task = useObject<Task>(Task, new BSON.ObjectID(id as string));
+
+  const [updatedDescription, setUpdatedDescription] = useState(
+    task?.description || ""
+  );
+
+  const updateDescription = () => {
+    if (!task) {
+      return;
+    }
+    realm.write(() => {
+      task.description = updatedDescription;
+    });
+  };
 
   if (!task) {
     return <Text>Not found</Text>;
