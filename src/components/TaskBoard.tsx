@@ -17,9 +17,7 @@ export default function TaskBoard() {
           colors={["#8711c1", "#2472fc"]}
           style={StyleSheet.absoluteFill}
         />
-        <SafeAreaView>
-          <TaskList />
-        </SafeAreaView>
+        <TaskList />
       </View>
     </>
   );
