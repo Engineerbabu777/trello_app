@@ -1,14 +1,10 @@
 import { Pressable, StyleSheet, Text } from "react-native";
 import Entypo from "@expo/vector-icons/Entypo";
 import { Link, router } from "expo-router";
-
-export type TaskType = {
-  description: string;
-  id: any;
-};
+import { Task } from "@/models/Task";
 
 type Props = {
-  task: TaskType;
+  task: Task;
 };
 export default function TaskListItem({ task }: Props) {
   return (
@@ -16,7 +12,10 @@ export default function TaskListItem({ task }: Props) {
       <Pressable
         style={styles.container}
         onPress={() => {
-          router.navigate({ pathname: `/details`, params: { id: task.id } });
+          router.navigate({
+            pathname: `/details`,
+            params: { id: task._id.toString() },
+          });
         }}
       >
         <Text style={styles.text}>{task.description}</Text>
