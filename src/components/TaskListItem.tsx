@@ -1,6 +1,6 @@
 import { Pressable, StyleSheet, Text } from "react-native";
 import Entypo from "@expo/vector-icons/Entypo";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 
 type TaskType = {
   description: string;
@@ -13,13 +13,16 @@ type Props = {
 export default function TaskListItem({ task }: Props) {
   return (
     <>
-      <Link href={`/${task.id}`} asChild>
-        <Pressable style={styles.container}>
-          <Text style={styles.text}>{task.description}</Text>
+      <Pressable
+        style={styles.container}
+        onPress={() => {
+          router.navigate({ pathname: `/details`, params: { id: task.id } });
+        }}
+      >
+        <Text style={styles.text}>{task.description}</Text>
 
-          <Entypo name="cross" size={16} color="gray" />
-        </Pressable>
-      </Link>
+        <Entypo name="cross" size={16} color="gray" />
+      </Pressable>
     </>
   );
 }
