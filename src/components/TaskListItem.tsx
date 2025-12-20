@@ -10,13 +10,11 @@ type Props = {
 export default function TaskListItem({ task }: Props) {
   const realm = useRealm();
 
-  
-    const deleteTask = () => {
+  const deleteTask = () => {
     realm.write(() => {
       realm.delete(task);
     });
   };
-
 
   return (
     <>
@@ -31,7 +29,7 @@ export default function TaskListItem({ task }: Props) {
       >
         <Text style={styles.text}>{task.description}</Text>
 
-        <Entypo name="cross" size={16} color="gray" />
+        <Entypo onPress={deleteTask} name="cross" size={16} color="gray" />
       </Pressable>
     </>
   );
