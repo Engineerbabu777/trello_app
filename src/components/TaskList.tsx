@@ -1,4 +1,4 @@
-import { FlatList, Text, View } from "react-native";
+import { Button, FlatList, Text, TextInput, View } from "react-native";
 import TaskListItem from "./TaskListItem";
 import { useState } from "react";
 
@@ -8,10 +8,17 @@ export default function TaskList() {
     { description: "Second Task" },
   ]);
 
+  const createTask = () => {}
+
   return (
     <>
       <View
-        style={{ backgroundColor: "#101112", padding: 10, borderRadius: 5 }}
+        style={{
+          backgroundColor: "#101112",
+          padding: 10,
+          borderRadius: 5,
+          gap: 5,
+        }}
       >
         <Text
           style={{
@@ -31,6 +38,18 @@ export default function TaskList() {
         />
 
         {/* INPUT */}
+
+        <TextInput
+          placeholder="New task"
+          placeholderTextColor={"gray"}
+          style={{
+            color: "white",
+            padding: 15,
+            backgroundColor: "#1D2125",
+            borderRadius: 5,
+          }}
+        />
+        <Button title="Add task"  onPress={createTask}/>
       </View>
     </>
   );
